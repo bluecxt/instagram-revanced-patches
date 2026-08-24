@@ -70,7 +70,14 @@ val hideNavigationButtonsPatch = bytecodePatch(
     )
 
     apply {
-        if (!hideHome!! && !hideReels!! && !hideDirect!! && !hideSearch!! && !hideProfile!! && !hideCreate!!) {
+        val doHideHome = hideHome ?: false
+        val doHideReels = hideReels ?: true
+        val doHideDirect = hideDirect ?: false
+        val doHideSearch = hideSearch ?: false
+        val doHideProfile = hideProfile ?: false
+        val doHideCreate = hideCreate ?: true
+
+        if (!doHideHome && !doHideReels && !doHideDirect && !doHideSearch && !doHideProfile && !doHideCreate) {
             return@apply Logger.getLogger(this::class.java.name).warning(
                 "No hide navigation buttons options are enabled. No changes made.",
             )
@@ -124,41 +131,41 @@ val hideNavigationButtonsPatch = bytecodePatch(
                     move-result-object v$buttonsListRegister
                 """
 
-            if (hideHome!!) {
+            if (doHideHome) {
                 addInstructionsAtControlFlowLabel(
                     returnIndex,
                     instructionsRemoveButtonByName("fragment_feed"),
                 )
             }
 
-            if (hideReels!!) {
+            if (doHideReels) {
                 addInstructionsAtControlFlowLabel(
                     returnIndex,
                     instructionsRemoveButtonByName("fragment_clips"),
                 )
             }
 
-            if (hideDirect!!) {
+            if (doHideDirect) {
                 addInstructionsAtControlFlowLabel(
                     returnIndex,
                     instructionsRemoveButtonByName("fragment_direct_tab"),
                 )
             }
-            if (hideSearch!!) {
+            if (doHideSearch) {
                 addInstructionsAtControlFlowLabel(
                     returnIndex,
                     instructionsRemoveButtonByName("fragment_search"),
                 )
             }
 
-            if (hideCreate!!) {
+            if (doHideCreate) {
                 addInstructionsAtControlFlowLabel(
                     returnIndex,
                     instructionsRemoveButtonByName("fragment_share"),
                 )
             }
 
-            if (hideProfile!!) {
+            if (doHideProfile) {
                 addInstructionsAtControlFlowLabel(
                     returnIndex,
                     instructionsRemoveButtonByName("fragment_profile"),

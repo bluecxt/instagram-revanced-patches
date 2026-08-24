@@ -27,7 +27,7 @@ val changeLinkSharingDomainPatch = bytecodePatch(
     )
 
     apply {
-        getCustomShareDomainMethod.returnEarly(customDomainHost!!)
+        getCustomShareDomainMethod.returnEarly(customDomainHost ?: "imginn.com")
 
         editShareLinksPatch { index, register ->
             addInstructions(
