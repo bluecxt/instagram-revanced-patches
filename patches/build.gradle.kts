@@ -2,12 +2,12 @@ group = "app.revanced"
 
 patches {
     about {
-        name = "ReVanced Patches"
-        description = "Patches for ReVanced"
-        source = "git@github.com:revanced/revanced-patches.git"
-        author = "ReVanced"
-        contact = "patches@revanced.app"
-        website = "https://revanced.app"
+        name = "Instagram ReVanced Patches"
+        description = "Dedicated ReVanced patches for Instagram"
+        source = "https://github.com/bluecxt/instagram-revanced-patches"
+        author = "bluecxt"
+        contact = "https://github.com/bluecxt/instagram-revanced-patches"
+        website = "https://github.com/bluecxt/instagram-revanced-patches"
         license = "GNU General Public License v3.0"
     }
 }
@@ -35,8 +35,11 @@ publishing {
     repositories {
         maven {
             name = "githubPackages"
-            url = uri("https://maven.pkg.github.com/revanced/revanced-patches")
-            credentials(PasswordCredentials::class)
+            url = uri("https://maven.pkg.github.com/bluecxt/instagram-revanced-patches")
+            credentials {
+                username = providers.gradleProperty("githubPackagesUsername").orNull ?: System.getenv("GITHUB_ACTOR") ?: "bluecxt"
+                password = providers.gradleProperty("githubPackagesPassword").orNull ?: System.getenv("GITHUB_TOKEN") ?: ""
+            }
         }
     }
 }
