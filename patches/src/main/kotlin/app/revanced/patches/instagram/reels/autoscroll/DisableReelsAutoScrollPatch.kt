@@ -1,0 +1,22 @@
+package app.revanced.patches.instagram.reels.autoscroll
+
+import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.util.returnEarly
+
+@Suppress("unused")
+val disableReelsAutoScrollPatch = bytecodePatch(
+    name = "Disable Reels auto-scroll",
+    description = "Removes the auto-scroll toggle and prevents Reels from scrolling automatically.",
+    use = false,
+) {
+    compatibleWith("com.instagram.android"("443.0.0.48.82", "442.0.0.46.79"))
+
+    apply {
+        // Prevent the auto-scroll feature from being initialized.
+        // When this returns false, ClipsViewerFragment skips creating the auto-scroller.
+        clipsAutoScrollFeatureCheckMethod.returnEarly()
+
+        // Make the toggle button handler a no-op so tapping it does nothing.
+        clipsAutoScrollToggleMethod.returnEarly()
+    }
+}
