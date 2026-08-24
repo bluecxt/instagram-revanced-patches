@@ -6,6 +6,16 @@ Tested & compatible with Instagram **v442.x** and **v443.x** (Android 9.0+, ARM6
 
 ---
 
+## 📱 Quick Setup (ReVanced Manager)
+
+Add this custom source URL in **ReVanced Manager > Settings > Sources > +**:
+
+```text
+https://raw.githubusercontent.com/bluecxt/instagram-revanced-patches/main/patches.json
+```
+
+---
+
 ## ✨ Features & Included Patches
 
 - 🚫 **Hide Ads (`Hide ads`)** : Complete ad-blocker eliminating sponsored items from the **Main Feed**, **Reels**, and **Stories** without startup or runtime crashes.
@@ -24,9 +34,7 @@ Tested & compatible with Instagram **v442.x** and **v443.x** (Android 9.0+, ARM6
 
 ---
 
-## 🚀 How to Use
-
-### Option 1: Using ReVanced CLI (Command Line)
+## 💻 Using ReVanced CLI (Command Line)
 
 1. Download the latest `.rvp` bundle from [Releases](https://github.com/bluecxt/instagram-revanced-patches/releases).
 2. Download [ReVanced CLI](https://github.com/ReVanced/revanced-cli/releases).
@@ -37,7 +45,7 @@ Tested & compatible with Instagram **v442.x** and **v443.x** (Android 9.0+, ARM6
 java -jar revanced-cli.jar patch \
   -p patches-*.rvp \
   -o instagram-patched.apk \
-  --exclusive -e "Hide ads" -e "Download media" -e "Follow back indicator" \
+  --exclusive -e "Hide ads" -e "Download media" \
   instagram.apk
 ```
 
@@ -45,28 +53,17 @@ java -jar revanced-cli.jar patch \
 
 ---
 
-### Option 2: Using ReVanced Manager
-
-1. Open **ReVanced Manager** on your Android device.
-2. Go to **Settings > Sources**.
-3. Under **Patches organization / source**, specify:
-   * **Source:** `bluecxt`
-   * **Repository:** `instagram-revanced-patches`
-4. Select Instagram from your storage and apply the patches!
-
----
-
 ## 🛠️ Building from Source
 
 ### Prerequisites
-- JDK 17 or JDK 21
+- JDK 17
 - Android SDK (build-tools)
 
 ### Build the `.rvp` Patch Bundle
 ```bash
-./gradlew :patches:jar
+./gradlew :patches:buildAndroid
 ```
-The compiled bundle will be output to:
+The compiled bundle with Dalvik bytecode will be output to:
 ```
 patches/build/libs/patches-<version>.rvp
 ```
