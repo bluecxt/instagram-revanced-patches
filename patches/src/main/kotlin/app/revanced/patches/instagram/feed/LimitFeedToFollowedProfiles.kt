@@ -20,7 +20,7 @@ val limitFeedToFollowedProfilesPatch = bytecodePatch(
     description = "Filters the home feed to display only content from profiles you follow.",
     use = false,
 ) {
-    compatibleWith("com.instagram.android"("443.0.0.48.82", "442.0.0.46.79"))
+    compatibleWith("com.instagram.android"("443.0.0.48.82"))
 
     dependsOn(sharedExtensionPatch)
 

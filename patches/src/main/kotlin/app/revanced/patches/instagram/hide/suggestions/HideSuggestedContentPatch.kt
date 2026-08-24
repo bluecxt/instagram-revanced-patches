@@ -11,7 +11,7 @@ val hideSuggestedContentPatch = bytecodePatch(
     description = "Hides suggested stories, reels, threads and survey from feed (Suggested posts will still be shown).",
     use = false,
 ) {
-    compatibleWith("com.instagram.android"("443.0.0.48.82", "442.0.0.46.79"))
+    compatibleWith("com.instagram.android"("443.0.0.48.82"))
 
     apply {
         feedItemParseFromJsonMethodMatch.method.apply {

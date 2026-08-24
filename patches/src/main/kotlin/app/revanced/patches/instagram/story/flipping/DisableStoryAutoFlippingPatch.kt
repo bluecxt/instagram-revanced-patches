@@ -9,7 +9,7 @@ val disableStoryAutoFlippingPatch = bytecodePatch(
     description = "Disable stories automatically flipping/skipping after some seconds.",
     use = false,
 ) {
-    compatibleWith("com.instagram.android"("443.0.0.48.82", "442.0.0.46.79"))
+    compatibleWith("com.instagram.android"("443.0.0.48.82"))
 
     apply {
         onStoryTimeoutActionMethod.returnEarly()

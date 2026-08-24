@@ -35,7 +35,7 @@ val preventScreenshotDetectionPatch = bytecodePatch(
     description = "Removes the registration of screen capture callbacks, preventing Instagram from detecting screenshots or notifying the sender.",
     use = true,
 ) {
-    compatibleWith("com.instagram.android"("443.0.0.48.82", "442.0.0.46.79"))
+    compatibleWith("com.instagram.android"("443.0.0.48.82"))
 
     dependsOn(
         transformInstructionsPatch(

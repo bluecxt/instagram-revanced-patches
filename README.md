@@ -2,7 +2,7 @@
 
 Dedicated, lightweight, and up-to-date [ReVanced](https://revanced.app) patches specifically tailored for **Instagram**.
 
-Tested & compatible with Instagram **v442.x** and **v443.x** (Android 9.0+, ARM64 & x86_64).
+Tested & compatible with Instagram **v443.x** and **v443.x** (Android 9.0+, ARM64 & x86_64).
 
 ---
 
@@ -40,7 +40,7 @@ https://bluecxt.github.io/instagram-revanced-patches/patches.json
 
 1. Download the latest `.rvp` bundle from [Releases](https://github.com/bluecxt/instagram-revanced-patches/releases).
 2. Download [ReVanced CLI](https://github.com/ReVanced/revanced-cli/releases).
-3. Obtain the recommended Instagram APK (v442 or v443).
+3. Obtain the recommended Instagram APK (v443 or v443).
 4. Run the patcher:
 
 ```bash

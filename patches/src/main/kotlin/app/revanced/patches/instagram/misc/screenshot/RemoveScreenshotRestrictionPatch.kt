@@ -19,7 +19,7 @@ val removeScreenshotRestrictionPatch = bytecodePatch(
     description = "Removes the restriction of taking screenshots in disappearing messages and media that normally wouldn't allow it.",
     use = true,
 ) {
-    compatibleWith("com.instagram.android"("443.0.0.48.82", "442.0.0.46.79"))
+    compatibleWith("com.instagram.android"("443.0.0.48.82"))
     extendWith("extensions/instagram/instagram.rve")
 
     dependsOn(

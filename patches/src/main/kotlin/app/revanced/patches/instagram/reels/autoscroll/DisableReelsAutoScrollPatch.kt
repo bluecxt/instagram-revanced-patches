@@ -9,7 +9,7 @@ val disableReelsAutoScrollPatch = bytecodePatch(
     description = "Removes the auto-scroll toggle and prevents Reels from scrolling automatically.",
     use = false,
 ) {
-    compatibleWith("com.instagram.android"("443.0.0.48.82", "442.0.0.46.79"))
+    compatibleWith("com.instagram.android"("443.0.0.48.82"))
 
     apply {
         // Prevent the auto-scroll feature from being initialized.

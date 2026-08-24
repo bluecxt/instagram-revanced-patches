@@ -15,7 +15,7 @@ import com.android.tools.smali.dexlib2.iface.reference.StringReference
 
 @Suppress("unused")
 val hideAdsPatch = bytecodePatch("Hide ads") {
-    compatibleWith("com.instagram.android"("443.0.0.48.82", "442.0.0.46.79"))
+    compatibleWith("com.instagram.android"("443.0.0.48.82"))
 
     apply {
         // 1. Collect and patch Dynamic Reels & Feed Insertion points

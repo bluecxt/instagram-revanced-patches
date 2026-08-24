@@ -26,7 +26,7 @@ val downloadMediaPatch = bytecodePatch(
     description = "Adds a \"Download\" option to the post \"...\" menu to save photos and videos.",
     use = false,
 ) {
-    compatibleWith("com.instagram.android"("443.0.0.48.82", "442.0.0.46.79"))
+    compatibleWith("com.instagram.android"("443.0.0.48.82"))
 
     dependsOn(sharedExtensionPatch)
 

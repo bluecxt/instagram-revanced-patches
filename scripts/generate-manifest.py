@@ -67,14 +67,14 @@ def main():
             "compatiblePackages": [
                 {
                     "name": "com.instagram.android",
-                    "versions": ["443.0.0.48.82", "442.0.0.46.79"]
+                    "versions": ["443.0.0.48.82"]
                 }
             ]
         })
 
     manifest = {
         "name": "Instagram ReVanced Patches - bluecxt",
-        "description": "Dedicated ReVanced patches for Instagram v442/v443",
+        "description": "Dedicated ReVanced patches for Instagram v443.0.0.48.82",
         "version": tag,
         "created_at": now_iso,
         "download_url": download_url,
