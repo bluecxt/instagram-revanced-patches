@@ -31,6 +31,8 @@ https://bluecxt.github.io/instagram-revanced-patches/patches.json
 - ⏸️ **Disable Story Auto-Flipping (`Disable story auto flipping`)** : Keeps stories on screen until you manually advance.
 - 🎨 **Location Sticker Redesign (`Enable location sticker redesign`)** : Unlocks full redesigned style set for location stickers.
 - 🛠️ **Enable Developer Menu (`Enable developer menu`)** : Exposes internal developer options in settings.
+- 📸 **Remove Screenshot Restriction (`Remove screenshot restriction`)** : Allows taking screenshots/screen recordings anywhere in the app, including disappearing media and Vanish Mode.
+- 🔕 **Prevent Screenshot Detection (`Prevent screenshot detection`)** : Prevents Instagram from detecting when a screenshot is taken and stops sending notifications to the sender.
 
 ---
 

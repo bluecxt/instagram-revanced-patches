@@ -51,7 +51,9 @@ def main():
         "Disable story auto flipping": "Disable stories automatically flipping/skipping after some seconds.",
         "Enable location sticker redesign": "Unlocks the redesigned location sticker with additional style options.",
         "Anonymous story viewing": "View stories without sending any information to the server.",
-        "Disable signature check": "Disables the signature check that can cause the app to crash on startup."
+        "Disable signature check": "Disables the signature check that can cause the app to crash on startup.",
+        "Remove screenshot restriction": "Removes the restriction of taking screenshots in disappearing messages and media that normally wouldn't allow it.",
+        "Prevent screenshot detection": "Removes the registration of screen capture callbacks, preventing Instagram from detecting screenshots or notifying the sender."
     }
 
     patches = []
