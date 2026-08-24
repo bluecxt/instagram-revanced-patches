@@ -2,7 +2,7 @@ group = "app.revanced"
 
 patches {
     about {
-        name = "Instagram ReVanced Patches"
+        name = "Instagram ReVanced Patches - bluecxt"
         description = "Dedicated ReVanced patches for Instagram"
         source = "https://github.com/bluecxt/instagram-revanced-patches"
         author = "bluecxt"
