@@ -11,8 +11,9 @@ Tested & compatible with Instagram **v442.x** and **v443.x** (Android 9.0+, ARM6
 Add this custom source URL in **ReVanced Manager > Settings > Sources > +**:
 
 ```text
-https://raw.githubusercontent.com/bluecxt/instagram-revanced-patches/main/patches.json
+https://bluecxt.github.io/instagram-revanced-patches/patches.json
 ```
+*(Or fallback direct raw: `https://raw.githubusercontent.com/bluecxt/instagram-revanced-patches/main/patches.json`)*
 
 ---
 
