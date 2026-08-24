@@ -13,7 +13,6 @@ Add this custom source URL in **ReVanced Manager > Settings > Sources > +**:
 ```text
 https://bluecxt.github.io/instagram-revanced-patches/patches.json
 ```
-*(Or fallback direct raw: `https://raw.githubusercontent.com/bluecxt/instagram-revanced-patches/main/patches.json`)*
 
 ---
 
