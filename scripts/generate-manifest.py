@@ -1,14 +1,19 @@
 #!/usr/bin/env python3
 import json
 import os
-import re
+import shutil
 import sys
 from datetime import datetime, timezone
 
 def main():
     tag = os.environ.get("RELEASE_TAG", "v1.0.1")
     repo = os.environ.get("GITHUB_REPOSITORY", "bluecxt/instagram-revanced-patches")
+    user = repo.split("/")[0] if "/" in repo else "bluecxt"
+    reponame = repo.split("/")[1] if "/" in repo else "instagram-revanced-patches"
     now_iso = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%S")
+
+    out_dir = sys.argv[1] if len(sys.argv) > 1 else "public"
+    os.makedirs(out_dir, exist_ok=True)
 
     rvp_filename = "patches-6.1.0.rvp"
     # Find actual rvp file in patches/build/libs if exists
@@ -17,9 +22,13 @@ def main():
         for f in os.listdir(libs_dir):
             if f.endswith(".rvp"):
                 rvp_filename = f
+                src_path = os.path.join(libs_dir, f)
+                dst_path = os.path.join(out_dir, f)
+                shutil.copy2(src_path, dst_path)
+                print(f"Copied {src_path} to {dst_path} ({os.path.getsize(dst_path)} bytes)")
                 break
 
-    download_url = f"https://github.com/{repo}/releases/download/{tag}/{rvp_filename}"
+    download_url = f"https://{user}.github.io/{reponame}/{rvp_filename}"
 
     descriptions = {
         "Hide ads": "Complete ad-blocker eliminating sponsored items from the Main Feed, Reels, and Stories without crashes.",
@@ -70,9 +79,6 @@ def main():
         "patches": patches
     }
 
-    out_dir = sys.argv[1] if len(sys.argv) > 1 else "public"
-    os.makedirs(out_dir, exist_ok=True)
-
     for filename in ["patches.json", "index.json"]:
         with open(os.path.join(out_dir, filename), "w") as fp:
             json.dump(manifest, fp, indent=2)
@@ -100,7 +106,7 @@ def main():
     <p>Official ReVanced Manager source endpoint for Instagram patches.</p>
     <div class="box">
         <strong>ReVanced Manager Source URL:</strong><br>
-        <code>https://bluecxt.github.io/instagram-revanced-patches/patches.json</code>
+        <code>https://{user}.github.io/{reponame}/patches.json</code>
     </div>
     <p>Latest Version: <b>{tag}</b></p>
     <p><a href="{download_url}">Download latest .rvp bundle</a></p>
@@ -109,7 +115,7 @@ def main():
 </html>
 """)
 
-    print(f"Generated manifest and pages in {out_dir}/ for release {tag}")
+    print(f"Generated manifest, pages, and bundled rvp in {out_dir}/ for release {tag}")
 
 if __name__ == "__main__":
     main()
