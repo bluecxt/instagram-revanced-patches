@@ -1,0 +1,19 @@
+package app.igrevanced.patches.instagram.misc.signature
+
+import app.revanced.patcher.immutableClassDef
+import app.revanced.patcher.patch.bytecodePatch
+import app.igrevanced.util.returnEarly
+
+@Suppress("unused")
+val disableSignatureCheckPatch = bytecodePatch(
+    name = "Disable signature check",
+    description = "Disables the signature check that can cause the app to crash on startup. " +
+        "Using this patch may cause issues with sharing or opening external Instagram links.",
+    use = false,
+) {
+    compatibleWith("com.instagram.android"("443.0.0.48.82"))
+
+    apply {
+        isValidSignatureMethodMethod.immutableClassDef.getIsValidSignatureClassMethod().returnEarly(true)
+    }
+}

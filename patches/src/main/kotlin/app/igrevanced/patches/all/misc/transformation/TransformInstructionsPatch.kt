@@ -1,0 +1,15 @@
+package app.igrevanced.patches.all.misc.transformation
+
+import app.revanced.com.android.tools.smali.dexlib2.mutable.MutableMethod
+import app.revanced.patcher.patch.bytecodePatch
+import app.igrevanced.util.forEachInstructionAsSequence
+import com.android.tools.smali.dexlib2.iface.ClassDef
+import com.android.tools.smali.dexlib2.iface.Method
+import com.android.tools.smali.dexlib2.iface.instruction.Instruction
+
+fun <T> transformInstructionsPatch(
+    filterMap: (ClassDef, Method, Instruction, Int) -> T?,
+    transform: (MutableMethod, T) -> Unit,
+) = bytecodePatch {
+    apply { forEachInstructionAsSequence(filterMap, transform) }
+}
